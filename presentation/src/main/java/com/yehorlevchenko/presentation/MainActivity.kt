@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.yehorlevchenko.presentation.ui.screen.LoginScreen
 import com.yehorlevchenko.presentation.ui.theme.LoginAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,7 +22,7 @@ class MainActivity : ComponentActivity() {
             LoginAppTheme {
                 Scaffold { innerPadding ->
                     Surface(modifier = Modifier.padding(innerPadding)) {
-
+                        LoginScreen()
                     }
                 }
             }
