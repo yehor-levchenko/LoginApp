@@ -23,3 +23,4 @@ rootProject.name = "LoginApp"
 include(":app")
 include(":presentation")
 include(":data")
+include(":domain")
