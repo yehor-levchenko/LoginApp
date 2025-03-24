@@ -2,6 +2,7 @@ package com.yehorlevchenko.presentation.di
 
 import com.yehorlevchenko.domain.repository.LoginRepository
 import com.yehorlevchenko.domain.usecase.LoginUseCase
+import com.yehorlevchenko.domain.usecase.ValidateUsernameUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,5 +17,11 @@ object UseCaseModule {
     @Singleton
     fun provideLoginUseCase(loginRepository: LoginRepository): LoginUseCase {
         return LoginUseCase(loginRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideValidateUsernameUseCase(): ValidateUsernameUseCase {
+        return ValidateUsernameUseCase()
     }
 }
