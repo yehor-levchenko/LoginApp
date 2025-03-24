@@ -40,6 +40,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":presentation"))
+
     kapt(libs.hilt.compiler)
 
     implementation(libs.material)
