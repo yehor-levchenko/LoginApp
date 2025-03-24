@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.hilt)
+    kotlin("kapt")
 }
 
 android {
@@ -32,4 +34,10 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+}
+
+dependencies {
+    kapt(libs.hilt.compiler)
+
+    implementation(libs.hilt.android)
 }
