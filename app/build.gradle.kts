@@ -41,6 +41,7 @@ android {
 
 dependencies {
     implementation(project(":presentation"))
+    implementation(project(":data"))
 
     kapt(libs.hilt.compiler)
 
