@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
@@ -18,6 +19,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.yehorlevchenko.presentation.R
 import com.yehorlevchenko.presentation.ui.theme.padding01
@@ -47,6 +50,8 @@ fun LoginScreen(viewModel: LoginViewModel = hiltViewModel()) {
                 value = viewModelUiState.value.password,
                 onValueChange = { viewModel.onUserEvent(LoginEvent.UserEvent.PasswordChanged(it)) },
                 label = { Text(stringResource(R.string.label_password)) },
+                visualTransformation = PasswordVisualTransformation(),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                 modifier = Modifier.fillMaxWidth()
             )
 
@@ -60,7 +65,7 @@ fun LoginScreen(viewModel: LoginViewModel = hiltViewModel()) {
             viewModelUiState.value.uiEvent?.let { uiEvent ->
                 when (uiEvent) {
                     is LoginEvent.UiEvent.ShowMessage -> {
-                        val message =  stringResource(uiEvent.message.messageResId)
+                        val message = stringResource(uiEvent.message.messageResId)
                         LaunchedEffect(uiEvent) {
                             snackBarHostState.showSnackbar(
                                 message = message,
