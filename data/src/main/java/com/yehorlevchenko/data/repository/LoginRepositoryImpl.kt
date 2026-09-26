@@ -10,12 +10,12 @@ import javax.inject.Inject
 
 class LoginRepositoryImpl @Inject constructor(
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
-    private val remoteRestaurantDataSource: RemoteLoginDataSource
+    private val remoteLoginDataSource: RemoteLoginDataSource
 ) : LoginRepository {
 
     override suspend fun login(username: String, password: String): ApiResponse<Int> {
         return withContext(ioDispatcher) {
-            remoteRestaurantDataSource.login(username, password)
+            remoteLoginDataSource.login(username, password)
         }
     }
 }
