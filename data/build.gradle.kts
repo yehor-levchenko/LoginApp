@@ -41,4 +41,9 @@ dependencies {
     implementation(project(":core"))
     kapt(libs.hilt.compiler)
     implementation(libs.hilt.android)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.mockito)
+    testImplementation(libs.mockitoKotlin)
+    testImplementation(libs.kotlinx.coroutines.test)
 }
